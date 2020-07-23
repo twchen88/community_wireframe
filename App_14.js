@@ -39,12 +39,11 @@ const App = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={{fontFamily: "Times New Roman", color: "white", fontSize: 35, fontWeight: "bold", marginTop: 50, marginLeft: 4.5}}> Community </Text>
+                <Text style={{fontFamily: "Times New Roman", color: "white", fontSize: 35, fontWeight: "bold", bottom: 5}}> Community </Text>
 
                 <TouchableOpacity>
                     <Image source={listIcon}
-                    style={{width: 30, height: 30,
-                    marginLeft: 135, marginTop: 55
+                    style={{width: 30, height: 30, bottom: 5, right: 5
                     }}></Image>
                 </TouchableOpacity>
             </View>
