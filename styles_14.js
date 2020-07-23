@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     header: {
         flex: 1, 
         flexDirection: 'row',
-        // justifyContent: 'flex-start',
-        // alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
         bottom: 5,
         backgroundColor: "#B60303"
     },
