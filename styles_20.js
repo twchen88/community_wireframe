@@ -34,6 +34,12 @@ const styles = StyleSheet.create({
         marginRight: 20,
         marginTop: 10,
         marginBottom: 5
+    },
+    closeButton: {
+        backgroundColor: "white",
+        borderRadius: 50,
+        width: 20,
+        height: 25
     }
 })
 
