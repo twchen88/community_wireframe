@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, View, Text, TouchableOpacity, ImagePropTypes, Alert, Modal, TouchableHighlight } from 'react-native';
+import { Image, StyleSheet, View, Text, TouchableOpacity, ImagePropTypes, Modal } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import styles from './styles.js';
 import listIcon from './assets/list.png';
@@ -26,8 +26,17 @@ const App = () => {
                     visible={modalVisible}
                 >
                     <View style={styles.modalView}>
-                        <View style={{flex: 1, flexDirection: 'row'}}>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: "space-between"}}>
                             <Text style={{fontSize: 25, marginTop: 7.5, marginLeft: 7.5}}> Create a New Group </Text>
+                            
+                            <View style={{marginRight: 10, marginTop: 5}}>
+
+                                <TouchableOpacity style={styles.closeButton}
+                                onPress={ () => {setModalVisible(!modalVisible); }}>
+                                    <Text style={{color: "#B60303", fontSize: 25, fontWeight: "bold"}}> x </Text>
+                                </TouchableOpacity>
+                                
+                            </View>
                         </View>
                         <View style={{flex: 11}}>
                             <SearchBar
