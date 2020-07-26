@@ -39,18 +39,6 @@ const Button2 = () => {
 }
 
 
-// const Person = (props) => {
-//     return (
-//         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-//             <View style={{flexDirection: 'row'}}>
-//                 <Image source={{uri: {props.address}}}></Image>
-//                 <Text> {props.name} </Text>
-//             </View>
-//             <Image source={require('./assets/messaginero1.png')}></Image>
-//     </View>);
-// };
-
-
 const App = () => {
     const [group1Visible, setGroup1Visible] = useState(false);
     const [group2Visible, setGroup2Visible] = useState(false);
@@ -123,8 +111,9 @@ const App = () => {
                                         <View style={styles.person}>
                                             <Image source={item.src} style={styles.pfp} />
                                             <Text style={{paddingLeft: 20}} >{item.name}</Text>
+                                            {item.admin === "true" ? <Text style={{color: "#707070", fontSize: 10}}> (admin) </Text> : null}
                                         </View>
-                                        <Image source={require('./assets/messaginero1.png')} style={{marginRight: 20}} />
+                                        {item.admin === "false" ? <Image source={require('./assets/messaginero1.png')} style={{marginRight: 20}} /> : null}
                                     </View>
                                 )}
                             />
