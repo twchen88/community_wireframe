@@ -48,6 +48,10 @@ const App = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.body}>
+                <TouchableOpacity style={{backgroundColor: "#EFE8E8", padding: 15, flexDirection: "row", justifyContent: "space-around"}}>
+                    <Image source={require("./assets/Vector_46.png")} style={{marginTop:7, marginLeft: -15}}></Image>
+                    <Text style={{fontSize: 30, fontWeight: "600", marginLeft: -15}}> Collaboration Group</Text>
+                </TouchableOpacity>
                 <Button2> </Button2>
                 <Button1 groupNum="2"
                         class="Communication Studio II"
