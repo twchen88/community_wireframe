@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View, Text, TouchableOpacity, ImagePropTypes, Modal, FlatList } from 'react-native';
 import styles from './styles.js';
-import listIcon from './assets/list.png';
-import bigMessage from './assets/messagi1.png';
-import calendar from './assets/Vector.png';
-import smallMessage from './assets/messaginero1.png';
 
 const Button1 = (props) => {
     return (
@@ -41,18 +37,35 @@ const Button2 = () => {
     );
 }
 
+const DATA = [{id: 'Nina Zanarelli'}, {id: 'Elsa Fernandez'}, {id: 'Alex Wilson'}];
+const person = (props) => {
+    const addy = './assets/'+props.name+'.png';
+    return ( <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View>
+            {/* <Image source={require(addy)}></Image> */}
+            <Text> props.name </Text>
+        </View>
+        <Image source={require('./assets/messaginero1.png')}></Image>
+    </View>);
+};
+
 
 const App = () => {
     const [group1Visible, setGroup1Visible] = useState(false);
     const [group2Visible, setGroup2Visible] = useState(false);
     const [group3Visible, setGroup3Visible] = useState(false);
+
+    const renderItem = (item) => {
+        <person name={item.id}> </person>
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={{fontFamily: "Times New Roman", color: "white", fontSize: 35, fontWeight: "bold", bottom: 5}}> Community </Text>
 
                 <TouchableOpacity>
-                    <Image source={listIcon}
+                    <Image source={require('./assets/list.png')}
                     style={{width: 30, height: 30, bottom: 5, right: 5
                     }}></Image>
                 </TouchableOpacity>
@@ -88,13 +101,13 @@ const App = () => {
                                 }} />
                             <View style={{flex: 0.9, flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}> 
                                 <View style={{flexDirection: 'row', paddingLeft: 7.5}}>
-                                    <Image source={bigMessage}
+                                    <Image source={require('./assets/messagi1.png')}
                                             style={{width: 41,
                                                 height: 39}}></Image>
                                     <Text style={styles.title}> Group chat </Text>
                                 </View>
                                 <View style={{flexDirection: 'row', paddingRight: 7.5}}>
-                                    <Image source={calendar}></Image>
+                                    <Image source={require('./assets/Vector.png')}></Image>
                                     <Text style={styles.title}> Add Schedule </Text>
                                 </View>
                             </View>
@@ -102,14 +115,17 @@ const App = () => {
 
                         <View style={{flex: 10, paddingTop: 25}}> 
 
-                            <FlatList>
-
+                            <FlatList
+                                data={DATA}
+                                renderItem = {renderItem}
+                            >
                             </FlatList>
                         </View>
 
 
                     </View>
                 </Modal>
+
                 <Button2> </Button2>
                 <Button1 groupNum="2"
                         class="Communication Studio II"
