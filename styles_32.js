@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        bottom: 5,
         backgroundColor: "#B60303"
     },
     modalView: {
@@ -62,7 +61,16 @@ const styles = StyleSheet.create({
         color: "#B60303",
         paddingLeft: 5,
         paddingTop: 7.5
+    },
+    person: {
+        paddingLeft: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
+    },
+    pfp: {
+        borderRadius: 100
     }
 })
 
-export default styles; 
+export default styles;
