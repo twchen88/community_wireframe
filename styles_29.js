@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        bottom: 5,
         backgroundColor: "#B60303"
     },
     body: {
@@ -41,11 +40,27 @@ const styles = StyleSheet.create({
         width: 20,
         height: 25
     },
+    title:{
+        fontWeight: "600",
+        fontSize: 15,
+        color: "#B60303",
+        paddingLeft: 5,
+        paddingTop: 7.5
+    },
     person: {
-        flex: 1,
-        backgroundColor: "blue",
-        padding: 10
+        paddingLeft: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
+    },
+    pfp: {
+        borderRadius: 100
+    },
+    addbutton: {
+        backgroundColor: "#B60303",
+        borderRadius: 10,
+        right: 20
     }
 })
 
-export default styles; 
+export default styles;
