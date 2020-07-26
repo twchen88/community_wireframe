@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, View, Text, TouchableOpacity, ImagePropTypes, Modal, FlatList } from 'react-native';
 import styles from './styles.js';
+import Profiles from './Profiles.js';
 
 const Button1 = (props) => {
     return (
@@ -37,27 +38,23 @@ const Button2 = () => {
     );
 }
 
-const DATA = [{id: 'Nina Zanarelli'}, {id: 'Elsa Fernandez'}, {id: 'Alex Wilson'}];
-const person = (props) => {
-    const addy = './assets/'+props.name+'.png';
-    return ( <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View>
-            {/* <Image source={require(addy)}></Image> */}
-            <Text> props.name </Text>
-        </View>
-        <Image source={require('./assets/messaginero1.png')}></Image>
-    </View>);
-};
+
+// const Person = (props) => {
+//     return (
+//         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+//             <View style={{flexDirection: 'row'}}>
+//                 <Image source={{uri: {props.address}}}></Image>
+//                 <Text> {props.name} </Text>
+//             </View>
+//             <Image source={require('./assets/messaginero1.png')}></Image>
+//     </View>);
+// };
 
 
 const App = () => {
     const [group1Visible, setGroup1Visible] = useState(false);
     const [group2Visible, setGroup2Visible] = useState(false);
     const [group3Visible, setGroup3Visible] = useState(false);
-
-    const renderItem = (item) => {
-        <person name={item.id}> </person>
-    };
 
     return (
         <View style={styles.container}>
@@ -71,6 +68,10 @@ const App = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.body}>
+            <TouchableOpacity style={{backgroundColor: "#EFE8E8", padding: 15, flexDirection: "row", justifyContent: "space-around"}}>
+                    <Image source={require("./assets/Vector_46.png")} style={{marginTop:7, marginLeft: -15}}></Image>
+                    <Text style={{fontSize: 30, fontWeight: "600", marginLeft: -15}}> Collaboration Group</Text>
+                </TouchableOpacity>
             <Modal
                     animationType="slide"
                     transparent={true}
@@ -114,12 +115,19 @@ const App = () => {
                         </View>
 
                         <View style={{flex: 10, paddingTop: 25}}> 
-
                             <FlatList
-                                data={DATA}
-                                renderItem = {renderItem}
-                            >
-                            </FlatList>
+                                data={Profiles}
+                                keyExtractor={(item, index) => item.id}
+                                renderItem={({item}) => (
+                                    <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: "center", paddingBottom: 10}}>
+                                        <View style={styles.person}>
+                                            <Image source={item.src} style={styles.pfp} />
+                                            <Text style={{paddingLeft: 20}} >{item.name}</Text>
+                                        </View>
+                                        <Image source={require('./assets/messaginero1.png')} style={{marginRight: 20}} />
+                                    </View>
+                                )}
+                            />
                         </View>
 
 
@@ -153,4 +161,4 @@ const App = () => {
     );
 }
 
-export default App; 
+export default App;
