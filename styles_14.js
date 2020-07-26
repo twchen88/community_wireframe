@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        bottom: 5,
         backgroundColor: "#B60303"
     },
     topButton: {
